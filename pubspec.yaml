@@ -14,7 +14,6 @@ dependencies:
   flutter_typeahead: ^4.3.7
   dio: ^5.0.1
   uuid: ^3.0.7
-  logger: ^1.2.2
 
 dev_dependencies:
   flutter_test:
