@@ -9,7 +9,7 @@ class PlacesService {
       {String? locale, required String googleMapApiKey}) async {
     if (input.isEmpty) return [];
 
-    final uuid = Uuid();
+    const uuid = Uuid();
     String sessionToken = uuid.v4();
     String baseURL =
         'https://maps.googleapis.com/maps/api/place/autocomplete/json';
@@ -23,8 +23,8 @@ class PlacesService {
 
     final response = await Dio().get(request);
 
-    if (response?.statusCode == 200) {
-      final result = response?.data;
+    if (response.statusCode == 200) {
+      final result = response.data;
 
       log(result['predictions'].toString());
 
