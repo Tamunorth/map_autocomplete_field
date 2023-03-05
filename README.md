@@ -17,6 +17,7 @@ TextField, just with a slight super-power.
 
 
  <img src="https://res.cloudinary.com/dxfwzjz4k/image/upload/v1677955495/GitHub%20Pakages/Simulator_Screen_Shot_-_iPhone_13_mini_-_2023-03-04_at_19.44.10_t3iuid.png" alt="preview" width="300"/> 
+ <img src="https://res.cloudinary.com/dxfwzjz4k/image/upload/v1677994380/GitHub%20Pakages/Simulator_Screen_Shot_-_iPhone_13_mini_-_2023-03-05_at_06.31.58_dxbk4m.png" alt="preview" width="300"/> 
 
 ## Getting Started
 
@@ -33,6 +34,8 @@ dependencies:
 ```dart
 import 'package:map_autocomplete_field/map_autocomplete_field.dart';
 ```
+
+## Simple Implementation
 
 ```dart
 
@@ -52,6 +55,72 @@ Widget build(BuildContext context) {
             },
           )
       )
+  );
+}
+```
+
+## With more customisation
+
+```dart
+
+Widget build(BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
+      title: const Text('MapTypeAheadField Alt'),
+    ),
+    body: Padding(
+      padding: const EdgeInsets.all(25),
+      child: MapAutoCompleteField(
+        googleMapApiKey: yourMapApiKey,
+        controller: addressCtrl,
+        itemBuilder: (BuildContext context, suggestion) {
+          return ListTile(
+            leading: Icon(Icons.add),
+            title: Text(suggestion.description),
+          );
+        },
+        onSuggestionSelected: (suggestion) {
+          addressCtrl.text = suggestion.description;
+        },
+        inputDecoration: const InputDecoration(
+          icon: Icon(Icons.add),
+          prefixIcon: Icon(Icons.remove),
+          suffixIcon: Icon(Icons.access_time_sharp),
+          fillColor: Colors.green,
+          hintText: 'My Hint',
+          hintStyle: TextStyle(
+            color: Colors.grey,
+            fontSize: 16.0,
+            fontWeight: FontWeight.w400,
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              width: 2,
+              color: Colors.green,
+            ),
+            // borderRadius: BorderRadius.all(Radius.circular(8.0)),
+          ),
+          contentPadding: EdgeInsets.symmetric(
+            horizontal: 10,
+            vertical: 10,
+          ),
+          border: OutlineInputBorder(
+            borderSide: BorderSide(
+              width: 2,
+              color: Colors.green,
+            ),
+            // borderRadius: BorderRadius.all(Radius.circular(8.0)),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              width: 2,
+              color: Colors.green,
+            ),
+            // borderRadius: BorderRadius.all(Radius.circular(8.0)),
+          ),
+        ),
+      ),
+    ),
   );
 }
 ```

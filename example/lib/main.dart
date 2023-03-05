@@ -68,10 +68,15 @@ class _MyAppState extends State<MyApp> {
 class SecondScreen extends StatelessWidget {
   SecondScreen({Key? key}) : super(key: key);
 
+  /// [addressCtrl] :  [TextEditingController] for the MapAutoComplete widget
   final TextEditingController addressCtrl = TextEditingController();
 
-  final String yourMapApiKey = '';
+  /// [yourApiKey] : Your Google Places API key
+  final String yourApiKey = '';
 
+  /// The [MapAutoCompleteField] widget is used here just as any other in a Material App
+  /// This sample showcases the widget with a more robust configuration mostly through the [InputDecoration] parameter.
+  ///
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,7 +86,7 @@ class SecondScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(25),
         child: MapAutoCompleteField(
-          googleMapApiKey: yourMapApiKey,
+          googleMapApiKey: yourApiKey,
           controller: addressCtrl,
           itemBuilder: (BuildContext context, suggestion) {
             return ListTile(
@@ -93,6 +98,9 @@ class SecondScreen extends StatelessWidget {
             addressCtrl.text = suggestion.description;
           },
           inputDecoration: const InputDecoration(
+            icon: Icon(Icons.add),
+            prefixIcon: Icon(Icons.remove),
+            suffixIcon: Icon(Icons.access_time_sharp),
             fillColor: Colors.green,
             hintText: 'My Hint',
             hintStyle: TextStyle(

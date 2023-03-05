@@ -13,7 +13,8 @@ super-power.
 
 
 
- <img src="github-assets/preview.png" alt="preview" width="300"/> 
+ <img src="https://res.cloudinary.com/dxfwzjz4k/image/upload/v1677955495/GitHub%20Pakages/Simulator_Screen_Shot_-_iPhone_13_mini_-_2023-03-04_at_19.44.10_t3iuid.png" alt="preview" width="300"/> 
+ <img src="https://res.cloudinary.com/dxfwzjz4k/image/upload/v1677994380/GitHub%20Pakages/Simulator_Screen_Shot_-_iPhone_13_mini_-_2023-03-05_at_06.31.58_dxbk4m.png" alt="preview" width="300"/> 
 
 ## Getting Started
 
