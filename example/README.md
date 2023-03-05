@@ -54,6 +54,7 @@ Widget build(BuildContext context) {
       )
   );
 }
+
 ```
 
 The constructor has 8 attributes related to the API:

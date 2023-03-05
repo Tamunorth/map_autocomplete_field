@@ -1,6 +1,6 @@
 name: map_autocomplete_field
-description: A new Flutter plugin project.
-version: 0.0.1
+description: A TextField, with a DropDown to easily integrate Google Places API in flutter
+version: 0.0.2
 homepage: https://github.com/Tamunorth/map_autocomplete_field
 
 environment:
@@ -10,7 +10,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  plugin_platform_interface: ^2.0.2
   flutter_typeahead: ^4.3.7
   dio: ^5.0.1
   uuid: ^3.0.7

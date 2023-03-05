@@ -3,12 +3,15 @@
 ![version](https://img.shields.io/badge/version-0.0.1-blue.svg)
 
 This package provides the responses from Google places api as options on a Dropdown, the Dropdown is
-a modified TextField, This custom widget combines the functionality of Dropdown and TexField and as
-such is easily dismissed when focus is lost, which was something lacking in most of the solutions
-out there, which was one of the main triggers for this solution, Another slight issue this aims to
-solve is to provide a highly customisable TextField solution for Google Places API, Providing a
-widget that naturally blends with your already existing custom TextField, just with a slight
-super-power.
+a modified TextField.
+
+This custom widget combines the functionality of Dropdown and TexField and as such is easily
+dismissed when focus is lost, which was something lacking in most of the solutions out there, which
+was one of the main triggers for this solution.
+
+Another slight issue this aims to solve is to provide a highly customisable TextField solution for
+Google Places API, Providing a widget that naturally blends with your already existing custom
+TextField, just with a slight super-power.
 
 
 
@@ -57,8 +60,10 @@ The constructor has 8 attributes related to the API:
 
 - `String googleMapApiKey` is a required attribute. It is the Google Maps API Key your application
   is using, make sure Places API is enabled on the Google Developer console.
+
 - `(Place) void onSuggestionSelected` is a callback function called when the user selects one of the
   autocomplete options.
+
 - `String locale` A location which you would like to restrict your results. Check the full list
   of [supported  country code](Wikipedia: List of ISO 3166 country codes or the ISO Online Browsing
   Platform) in the documentation.

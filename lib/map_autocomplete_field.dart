@@ -4,6 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:map_autocomplete_field/services/places_service.dart';
 
+/// Takes the required values [controller], [onSuggestionSelected], [googleMapApiKey]
+/// and [itemBuilder] (This describes haw the items in the DropDown of suggestions should look, usually a [ListTile] is used here, any widget would work).
+///
+///Optionally a [validator] can be provided as well and Behaves like a FormField when Wrapped with a [Form] widget.
+///
+/// The [textFieldConfiguration] parameter takes a [TextFieldConfiguration] object, which is used to customize the look
+/// of the widget.
+///
+/// It also take a [locale] parameter which is used to limit the range of the search region to a particular locale, if no locale is set,
+/// the result span the globe, which no not be desirable behaviour for some use cases.
+
 class MapAutoCompleteField extends StatelessWidget {
   const MapAutoCompleteField({
     Key? key,
@@ -16,7 +27,6 @@ class MapAutoCompleteField extends StatelessWidget {
     this.validator,
     required this.googleMapApiKey,
     this.locale,
-    this.textFieldConfiguration,
     this.contentPadding,
     this.fillColor,
     this.hintStyle,
@@ -24,6 +34,8 @@ class MapAutoCompleteField extends StatelessWidget {
     this.enabledBorder,
     this.border,
     this.transitionBuilder,
+    this.inputDecoration,
+    this.focusNode,
   }) : super(key: key);
   final TextEditingController controller;
   final FutureOr<Iterable<dynamic>> Function(String)? suggestionsCallback;
@@ -32,7 +44,6 @@ class MapAutoCompleteField extends StatelessWidget {
   final Function(String?)? onSaved;
   final String? Function(String?)? validator;
   final String? hint;
-  final TextFieldConfiguration? textFieldConfiguration;
   final EdgeInsetsGeometry? contentPadding;
   final Color? fillColor;
   final TextStyle? hintStyle;
@@ -42,8 +53,10 @@ class MapAutoCompleteField extends StatelessWidget {
   final Widget Function(BuildContext, Widget, AnimationController?)?
       transitionBuilder;
 
+  final InputDecoration? inputDecoration;
   final String googleMapApiKey;
   final String? locale;
+  final FocusNode? focusNode;
 
   @override
   Widget build(BuildContext context) {
@@ -56,10 +69,11 @@ class MapAutoCompleteField extends StatelessWidget {
             // color: Pallets.grey50,
           ),
           child: TypeAheadFormField(
-            textFieldConfiguration: textFieldConfiguration ??
-                TextFieldConfiguration(
-                  controller: controller,
-                  decoration: InputDecoration(
+            textFieldConfiguration: TextFieldConfiguration(
+              focusNode: focusNode,
+              controller: controller,
+              decoration: inputDecoration ??
+                  InputDecoration(
                     fillColor: fillColor ?? const Color(0xffBFBFBF),
                     hintText: hint,
                     hintStyle: hintStyle ??
@@ -98,13 +112,13 @@ class MapAutoCompleteField extends StatelessWidget {
                           borderRadius: BorderRadius.all(Radius.circular(8.0)),
                         ),
                   ),
-                ),
+            ),
             suggestionsCallback: suggestionsCallback ??
                 (query) {
                   return PlacesService.getSuggestion(
                     query,
                     googleMapApiKey: googleMapApiKey,
-                    locale: 'ng',
+                    locale: locale,
                   );
                 },
             itemBuilder: itemBuilder,
