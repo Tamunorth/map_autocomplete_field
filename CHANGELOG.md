@@ -1,3 +1,9 @@
 ## 0.0.1
 
-* TODO: Describe initial release.
+* Initial release
+* Basic DropDown functionality
+
+## 0.0.2
+
+* Updated documentation
+* Improved customisation with exposure of [InputDecoration]
