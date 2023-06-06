@@ -35,6 +35,7 @@ class MapAutoCompleteField extends StatelessWidget {
     this.border,
     this.transitionBuilder,
     this.inputDecoration,
+    this.selectedTextStyle,
     this.focusNode,
   }) : super(key: key);
   final TextEditingController controller;
@@ -50,6 +51,7 @@ class MapAutoCompleteField extends StatelessWidget {
   final InputBorder? focusedBorder;
   final InputBorder? enabledBorder;
   final InputBorder? border;
+  final TextStyle? selectedTextStyle;
   final Widget Function(BuildContext, Widget, AnimationController?)?
       transitionBuilder;
 
@@ -72,6 +74,7 @@ class MapAutoCompleteField extends StatelessWidget {
             textFieldConfiguration: TextFieldConfiguration(
               focusNode: focusNode,
               controller: controller,
+              style: selectedTextStyle,
               decoration: inputDecoration ??
                   InputDecoration(
                     fillColor: fillColor ?? const Color(0xffBFBFBF),
